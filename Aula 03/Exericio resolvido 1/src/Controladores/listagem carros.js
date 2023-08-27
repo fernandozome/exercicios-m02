@@ -1,24 +1,24 @@
 const carros = require("../banco de dados")
 
-const fltr_carros = (req, res) => {
+const listar_carros = (req, res) => {
 
     const { marca, cor } = req.query
     let resultado = carros
 
     if (marca) {
-        resultado = carros.filter((carro) => { return carro.marca === marca })
-        res.send(resultado)
-    } else if (cor) {
-        resultado = carros.filter((carro) => { return carro.cor === cor })
-        res.send(resultado)
+        resultado = resultado.filter((carro) => { return carro.marca === marca })
+    }
+    if (cor) {
+        resultado = resultado.filter((carro) => { return carro.cor === cor })
     }
 
     res.send(resultado)
 }
 
-const listar_carros = (req, res) => {
+const fltr_carros = (req, res) => {
+    const { id } = req.params
     const carro_encontrado = carros.find((carro) => {
-        return carro.id === Number(req.params.id)
+        return carro.id === Number(id)
     })
     res.send(carro_encontrado)
 }

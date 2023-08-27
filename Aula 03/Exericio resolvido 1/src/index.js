@@ -1,10 +1,9 @@
 const express = require("express")
 const app = express()
 const { fltr_carros, listar_carros } = require("./Controladores/listagem carros")
-const carros = require("./banco de dados")
 
-app.get("/carros", (req, res) => { res.send(carros) })
-app.get("/carros/:id", listar_carros)
-app.get("/carros/:marca", fltr_carros)
-app.get("/carros/:cor", fltr_carros)
+
+app.get("/carros", listar_carros)
+app.get("/carros/:id", fltr_carros)
+
 app.listen(3000)
