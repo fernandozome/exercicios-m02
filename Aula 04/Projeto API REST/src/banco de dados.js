@@ -1,5 +1,7 @@
 const banco_de_dados = {
     identificador_instrutor: 3,
+    identificador_aula: 2,
+
     instrutores: [
         {
             id: 1,
@@ -12,6 +14,14 @@ const banco_de_dados = {
             nome: "Dani",
             email: "dani@email.com",
             status: true
+        }
+    ],
+    aulas: [
+        {
+            id: 1,
+            instrutor_id: 1,
+            titulo: "Arrays",
+            descrição: "Aula sobre Arrays",
         }
     ]
 }
